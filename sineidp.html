@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GRS Squad Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(to bottom, red, green);
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 40px;
+      font-size: 2.5em;
+    }
+    .nav-button {
+      margin: 15px;
+      padding: 12px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .nav-button:hover {
+      transform: scale(1.1);
+    }
+    #homeBtn { background-color: green; }
+    #aboutBtn { background-color: blue; }
+    #infoBtn { background-color: purple; }
+    #backBtn { background-color: red; }
+
+    .screen {
+      display: none;
+      margin-top: 30px;
+    }
+    .screen img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔋 GRS Squad Portal</h1>
+
+  <button class="nav-button" id="homeBtn">Home</button>
+  <button class="nav-button" id="aboutBtn">About Us</button>
+  <button class="nav-button" id="infoBtn">Info Start →</button>
+  <button class="nav-button" id="backBtn">Back →</button>
+
+  <div id="hello1" class="screen">
+    <img src="hello 1.png" alt="Powering tomorrow in smart cities">
+  </div>
+
+  <div id="hello2" class="screen">
+    <img src="hello 2.png" alt="See Our Team">
+  </div>
+
+  <div id="hello3" class="screen">
+    <img src="hello 3.png" alt="Green spaces shaping the future">
+  </div>
+
+  <script>
+    const screens = {
+      homeBtn: "hello1",
+      aboutBtn: "hello2",
+      infoBtn: "hello3",
+      backBtn: "hello1"
+    };
+
+    Object.keys(screens).forEach(btnId => {
+      document.getElementById(btnId).onclick = () => {
+        Object.values(screens).forEach(id => {
+          document.getElementById(id).style.display = "none";
+        });
+        document.getElementById(screens[btnId]).style.display = "block";
+      };
+    });
+
+    // Show hello1 by default
+    document.getElementById("hello1").style.display = "block";
+  </script>
+
+</body>
+</html>
